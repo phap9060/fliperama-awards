@@ -1,0 +1,21 @@
+.login-container {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-button {
+  appearance: none;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-image {
+  width: 100px;
+  cursor: pointer;
+}

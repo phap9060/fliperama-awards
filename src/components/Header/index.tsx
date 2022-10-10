@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className="header-box">
       <Avatar color="yellow" title="Fliperama Nerd Logo" src={LogoTransp} />
-      <Text size="lg">Fliperama Awards</Text>
+      <Text className="text-header">Fliperama Awards</Text>
     </header>
   );
 };

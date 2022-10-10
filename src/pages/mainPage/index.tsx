@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { db } from "../../fireBase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { SelectComponent } from "../../components/Select";
-import "dracula-ui/styles/dracula-ui.css";
-import "./style.css";
-import { Box } from "dracula-ui";
+import { Box, Button } from "dracula-ui";
 import { Container } from "../../components/Container/index";
 import { allCategories } from "./categories";
 import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
+import "dracula-ui/styles/dracula-ui.css";
+import "./style.css";
 
 type usersTypes = {
   id?: string;
@@ -28,13 +29,22 @@ type usersTypes = {
 };
 function MainPage() {
   const [users, setUsers] = useState<usersTypes[]>();
+  const navigate = useNavigate();
   const dbCollection = collection(db, "user");
   const getUsers = async () => {
     const usersData = await getDocs(dbCollection);
     setUsers(usersData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+  const catchAutorization = () => {
+    const token = localStorage.getItem("token");
+    //if (!token) navigate("/");
+  };
+  const confirmPicks = () => {
+    localStorage.removeItem("token");
+  };
   useEffect(() => {
-    getUsers();
+    catchAutorization();
+    navigate("/");
   }, []);
 
   return (
@@ -44,6 +54,7 @@ function MainPage() {
         <Box width="full" color="blackLight">
           {allCategories.map((categories) => (
             <SelectComponent
+              key={categories.categoryName}
               category={categories.categoryName}
               option1={categories.option1}
               option2={categories.option2}
@@ -53,6 +64,9 @@ function MainPage() {
             />
           ))}
         </Box>
+        <Button color="yellow" as="button" m="lg">
+          Confirmar Votos
+        </Button>
       </Container>
     </section>
   );

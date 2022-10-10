@@ -1,11 +1,21 @@
-.header-box{
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 30px;
-    flex-direction:row ;
-   
+.header-box {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-direction: row;
+}
+.text-header {
+  font-size: 30px;
+}
+@media (max-width: 800px) {
+  .text-header {
+    font-size: 20px;
+  }
+}
+.login-text {
+  font-size: 20px;
 }
