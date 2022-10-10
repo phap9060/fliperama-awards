@@ -1,0 +1,10 @@
+.container{
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+@media (max-width:800px) {
+    .container{
+        width: 100vw;
+    }
+}
