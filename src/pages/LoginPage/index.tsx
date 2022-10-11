@@ -2,24 +2,24 @@ import { Header } from "../../components/Header";
 import { Card, Text } from "dracula-ui";
 import { useNavigate } from "react-router-dom";
 import google from "../../assets/google.png";
+import { signInWithGoogle } from "../../fireBase/authGoogle";
+import { useEffect } from "react";
 import "dracula-ui/styles/dracula-ui.css";
 import "./style.css";
-import { signInWithGoogle } from "../../fireBase/authGoogle";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
   const Login = async () => {
     const result = await signInWithGoogle();
     if (result) {
-      console.log(result.user.refreshToken);
       localStorage.setItem("token", result.user.refreshToken);
       navigate(`vote`);
     }
   };
+  useEffect(() => {}, []);
   return (
     <section className="login-container">
       <Header />
-
       <Card variant="subtle" color="purple" p="md" m="md">
         <div className="card-content">
           <Text className={"login-text"} color="purple">

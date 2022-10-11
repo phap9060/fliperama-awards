@@ -37,14 +37,14 @@ function MainPage() {
   };
   const catchAutorization = () => {
     const token = localStorage.getItem("token");
-    //if (!token) navigate("/");
+    if (!token) navigate("/");
   };
   const confirmPicks = () => {
     localStorage.removeItem("token");
+    navigate("/");
   };
   useEffect(() => {
     catchAutorization();
-    navigate("/");
   }, []);
 
   return (
@@ -64,9 +64,11 @@ function MainPage() {
             />
           ))}
         </Box>
-        <Button color="yellow" as="button" m="lg">
-          Confirmar Votos
-        </Button>
+        <div className="button-container">
+          <Button onClick={confirmPicks} color="yellow" as="button" m="lg">
+            Confirmar Votos
+          </Button>
+        </div>
       </Container>
     </section>
   );
