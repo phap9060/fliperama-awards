@@ -12,7 +12,7 @@ export const LoginPage = () => {
   const Login = async () => {
     const result = await signInWithGoogle();
     if (result) {
-      localStorage.setItem("token", result.user.refreshToken);
+      //localStorage.setItem("token", result.user.refreshToken);
       navigate(`vote`);
     }
   };
