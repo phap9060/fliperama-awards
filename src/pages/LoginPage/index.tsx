@@ -1,7 +1,6 @@
 import { Header } from "../../components/Header";
-import { Card, Text } from "dracula-ui";
+import { Button, Card, Text } from "dracula-ui";
 import { useNavigate } from "react-router-dom";
-import google from "../../assets/google.png";
 import { signInWithGoogle } from "../../fireBase/authGoogle";
 import { useEffect } from "react";
 import "dracula-ui/styles/dracula-ui.css";
@@ -28,7 +27,17 @@ export const LoginPage = () => {
           <Text className={"login-text"} color="yellow">
             Sempre reforçando que a votação é anônima!
           </Text>
-          <button onClick={Login}>Login com google</button>
+          <Button
+            as="button"
+            style={{ marginTop: 15 }}
+            variant="outline"
+            color="yellow"
+            onClick={Login}
+          >
+            <Text size="lg" color="purple">
+              Logar com conta google!
+            </Text>
+          </Button>
         </div>
       </Card>
     </section>
