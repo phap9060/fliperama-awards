@@ -28,7 +28,7 @@ export const LoginPage = () => {
           <Text className={"login-text"} color="yellow">
             Sempre reforçando que a votação é anônima!
           </Text>
-          <img className="login-image" onClick={Login} src={google} />
+          <button onClick={Login}>Login com google</button>
         </div>
       </Card>
     </section>
